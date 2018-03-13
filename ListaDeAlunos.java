@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  *
  * @author Laboratorios
  */
-public class ListaDeInteiros {
+public class ListaDeAlunos {
     private int[] dados;
     private int tamanho;
-    public ListaDeInteiros (int capMax) {
+    public ListaDeAlunos (int capMax) {
         dados = new int[capMax];
         tamanho = 0;
     }

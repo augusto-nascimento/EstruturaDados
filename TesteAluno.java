@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
  *
  * @author Laboratorios
  */
-public class TesteMenu {
+public class TesteAluno {
     public static void main (String args[]) {
-        ListaDeInteiros lista1 = new ListaDeInteiros(4);
+        ListaDeAlunos lista1 = new ListaDeAlunos(4);
         int op = 0, x;
         String str;
         for (int i=1;i<=4;i++){
@@ -38,12 +38,9 @@ public class TesteMenu {
             op = Integer.parseInt(str);
             switch (op) {
                 case 1:
-                    x = Integer.parseInt(
-                            JOptionPane.showInputDialog(
-                                    "Adicione novo elemento"
-                            )
-                        );
-                    lista1.adicionaInicio(x);
+                    String nome = JOptionPane.showInputDialog("Nome?");
+                    String ra = JOptionPane.showInputDialog("Nome?");
+                    lista1.adicionaInicio(new Aluno(nome, ra));
                     break;
                 case 2:
                     lista1.removeInicio();

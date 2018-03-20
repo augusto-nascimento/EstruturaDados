@@ -12,32 +12,32 @@ import javax.swing.JOptionPane;
  * @author Laboratorios
  */
 public class ListaDeAlunos {
-    private int[] dados;
+    private Aluno[] dados;
     private int tamanho;
     public ListaDeAlunos (int capMax) {
-        dados = new int[capMax];
+        dados = new Aluno[capMax];
         tamanho = 0;
     }
     /**
      * Adiciona elemento ao inicio da lista
      * @param e é o novo elemento
      */
-    public void adicionaInicio(int e){
+    public void adicionaInicio(Aluno aluno){
         if (cheia()) {
             JOptionPane.showMessageDialog(null, "ERRO:\n A lista está cheia!\n");
         } else {
             for (int i = tamanho;i>0;i=i-1) {
                 dados[i] = dados[i-1];
             }
-            dados[0]=e;
+            dados[0] = aluno;
             tamanho++;
         }
     }
-    public void adicionaFinal(int e){
+    public void adicionaFinal(Aluno aluno){
         if (cheia()) {
             JOptionPane.showMessageDialog(null, "ERRO:\n A lista está cheia!");
         } else {
-            dados[tamanho]=e;
+            dados[tamanho] = aluno;
             tamanho++;
         }
     }    
@@ -45,12 +45,12 @@ public class ListaDeAlunos {
         if (vazia()) {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
         } else {
-            int e = dados[0];
+            Aluno aluno = dados[0];
             for (int i = 0;i<tamanho-1;i++) {
                 dados[i] = dados[i+1];
             }
             tamanho--;
-            dados[tamanho] = 0;
+            dados[tamanho] = new Aluno("","") ;
         }
     }
     public void removeFinal(){
@@ -58,20 +58,20 @@ public class ListaDeAlunos {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
         } else {
             tamanho--;
-            dados[tamanho] = 0;
+            dados[tamanho] = new Aluno("","");
         }
     }
-    public int obtemPrimeiro(){
+    public Aluno obtemPrimeiro(){
         if (vazia()) {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
-            return 0;
+            return new Aluno("","");
         }
         return dados[0];
     }
-    public int obtemUltimo(){
+    public Aluno obtemUltimo(){
         if (vazia()) {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
-            return 0;
+            return new Aluno("","");
         }
         return dados[tamanho-1];
     }

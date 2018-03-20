@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
  *
  * @author Laboratorios
  */
-public class TesteMenu {
+public class TesteListaString {
     public static void main (String args[]) {
-        ListaDeInteiros lista1 = new ListaDeInteiros(4);
-        int op = 0, x, n;
-        String str;
-        for (int i=1;i<=4;i++){
-            lista1.adicionaFinal(i);
-        }
+    	ListaDeCaracteres lista1 = new ListaDeCaracteres(4);
+        int op = 0, n;
+        String str, x;
+//        for (int i=1;i<=4;i++){
+//            lista1.adicionaFinal(i);
+//        }
         while (op != 99) {
             str = JOptionPane.showInputDialog(
                     "CONTEUDO DA LISTA: \n" + 
@@ -31,17 +31,15 @@ public class TesteMenu {
                     "5-Remove Posicao\n"+
                     "6-Obtem Primeiro\n"+
                     "7-Obtem Ultimo\n"+
-                    "8-Adiciona posicao\n"+
+//                    "8-Adiciona Inicio\n"+
                     "9-Imprime Lista\n"+
                     "99-Sair\n\n"
             );
             op = Integer.parseInt(str);
             switch (op) {
                 case 1:
-                    x = Integer.parseInt(
-                            JOptionPane.showInputDialog(
+                    x = JOptionPane.showInputDialog(
                                     "Adicione novo elemento"
-                            )
                         );
                     lista1.adicionaInicio(x);
                     break;
@@ -49,23 +47,19 @@ public class TesteMenu {
                     lista1.removeInicio();
                     break;
                 case 3:
-                    x = Integer.parseInt(
-                            JOptionPane.showInputDialog(
+                    x = JOptionPane.showInputDialog(
                                     "Adicione novo elemento"
-                            )
-                        );    
+                            );    
                     lista1.adicionaFinal(x);
                     break;
                 case 4:
                     lista1.removeFinal();
                     break;
                 case 5:
-                    x = Integer.parseInt(
-                            JOptionPane.showInputDialog(
-                                    "Informe a posição do elemento que deseja remover"
-                            )
-                        );
-                    lista1.removePosicao(x);
+                    n = Integer.parseInt(JOptionPane.showInputDialog(
+                                    "Informe a posiÃ§Ã£o do elemento que deseja remover"
+                            ));                    
+                    lista1.removePosicao(n);
                     break;
                 case 6:
                     JOptionPane.showMessageDialog(null,
@@ -74,21 +68,11 @@ public class TesteMenu {
                     break;
                 case 7:
                     JOptionPane.showMessageDialog(null,
-                            "O último elemento é:" + lista1.obtemUltimo()
+                            "O Ãºltimo elemento é:" + lista1.obtemUltimo()
                     );
                     break;                    
                 case 8:
-                    n = Integer.parseInt(
-                            JOptionPane.showInputDialog(
-                                    "Informe a posição do elemento que deseja inserir"
-                            )
-                        );
-                    x = Integer.parseInt(
-                            JOptionPane.showInputDialog(
-                                    "Informe o elemento que deseja inserir"
-                            )
-                        );                    
-                    lista1.adicionaPosicao(x, n);
+                    System.out.println("Em implementação");
                     break;
                 case 9:
                     JOptionPane.showMessageDialog(null,lista1.toString());

@@ -9,20 +9,20 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Laboratorios
+ * @author Augusto Rocha
  */
-public class ListaDeInteiros {
-    private int[] dados;
+public class ListaDeCaracteres {
+    private String[] dados;
     private int tamanho;
-    public ListaDeInteiros (int capMax) {
-        dados = new int[capMax];
+    public ListaDeCaracteres (int capMax) {
+        dados = new String[capMax];
         tamanho = 0;
     }
     /**
      * Adiciona elemento ao inicio da lista
      * @param È o novo elemento
      */
-    public void adicionaInicio(int e){
+    public void adicionaInicio(String e){
         if (cheia()) {
             JOptionPane.showMessageDialog(null, "ERRO:\n A lista est√° cheia!\n");
         } else {
@@ -33,7 +33,7 @@ public class ListaDeInteiros {
             tamanho++;
         }
     }
-    public void adicionaFinal(int e){
+    public void adicionaFinal(String e){
         if (cheia()) {
             JOptionPane.showMessageDialog(null, "ERRO:\n A lista est√° cheia!");
         } else {
@@ -41,17 +41,17 @@ public class ListaDeInteiros {
             tamanho++;
         }
     }    
-    public int removeInicio(){
+    public String removeInicio(){
         if (vazia()) {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
-            return 0;
+            return "";
         } else {
-            int e = dados[0];
+            String e = dados[0];
             for (int i = 0;i<tamanho-1;i++) {
                 dados[i] = dados[i+1];
             }
             tamanho--;
-            dados[tamanho] = 0;
+            dados[tamanho] = "";
             return e;
         }
     }
@@ -60,25 +60,25 @@ public class ListaDeInteiros {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
         } else {
             tamanho--;
-            dados[tamanho] = 0;
+            dados[tamanho] = "";
         }
     }
-    public int obtemPrimeiro(){
+    public String obtemPrimeiro(){
         if (vazia()) {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
-            return 0;
+            return "";
         }
         return dados[0];
     }
-    public int obtemUltimo(){
+    public String obtemUltimo(){
         if (vazia()) {
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
-            return 0;
+            return "";
         }
         return dados[tamanho-1];
     }
     public void removePosicao(int n){
-        int e;
+        String e;
         if (vazia()){
             JOptionPane.showMessageDialog(null, "ERRO: Lista vazia");
         } else if (tamanho < n){
@@ -94,21 +94,7 @@ public class ListaDeInteiros {
                 }
             }
             tamanho--;
-            dados[tamanho] = 0;
-        }
-    }
-    public void adicionaPosicao(int x, int n){
-        int e;
-        if (cheia()){
-            JOptionPane.showMessageDialog(null, "ERRO: Lista cheia");
-        } else if (tamanho < n-1){
-            JOptionPane.showMessageDialog(null, "A posiÁ„o È maior que o tamanho da lista");
-        } else {
-            for (int i = n-1;i<tamanho;i++) {
-            	dados[i+1] = dados[i];
-            }
-            tamanho++;
-            dados[n-1] = x;
+            dados[tamanho] = "";
         }
     }
     public boolean cheia() {
@@ -119,11 +105,11 @@ public class ListaDeInteiros {
     }
     public String toString() {
         if (vazia()) {
-            return "A lista est· vazia";
+            return "A lista est√° vazia";
         }
         String s = "";
         for (int i = 0; i < tamanho;i++) {
-            s = s + dados[i] + "|";
+            s = s + "|" + dados[i];
         }
         return s;
     }

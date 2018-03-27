@@ -85,14 +85,14 @@ public class ListaDeAlunos {
         } else {
             for (int i = 0;i<tamanho;i++) {
                 if (i == n - 1 ) {
-                    e = dados[i];
+                    e = i;
                 }
                 if (i > n -1){
                     dados[i-1] = dados[i];
                 }
             }
             tamanho--;
-            dados[tamanho] = 0;
+            dados[tamanho] = new Aluno("","");
         }
     }
     public boolean cheia() {

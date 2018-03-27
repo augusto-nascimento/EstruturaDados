@@ -11,12 +11,10 @@ import javax.swing.JOptionPane;
  *
  * @author Laboratorios
  */
-public class TesteAluno {
+public class MenuLista {
     public static void main (String args[]) {
-        ListaDeAlunos lista1 = new ListaDeAlunos(4);
-        String nome;
-        String ra;
-        int op = 0, x;
+        ListaLigada lista1 = new ListaLigada();
+        int op = 0, x, n;
         String str;
         while (op != 99) {
             str = JOptionPane.showInputDialog(
@@ -29,49 +27,65 @@ public class TesteAluno {
                     "4-Remove Final\n"+
                     "5-Remove Posicao\n"+
                     "6-Obtem Primeiro\n"+
-                    "7-Obtem Último\n"+
-//                    "8-Adiciona Inicio\n"+
+                    "7-Obtem Ultimo\n"+
+                    "8-Adiciona posicao\n"+
                     "9-Imprime Lista\n"+
                     "99-Sair\n\n"
             );
             op = Integer.parseInt(str);
             switch (op) {
                 case 1:
-                    nome = JOptionPane.showInputDialog("Nome?");
-                    ra = JOptionPane.showInputDialog("RA?");
-                    lista1.adicionaInicio(new Aluno(nome, ra));
+                    x = Integer.parseInt(
+                            JOptionPane.showInputDialog(
+                                    "Adicione novo elemento"
+                            )
+                        );
+                    lista1.adicionaInicio(x);
                     break;
                 case 2:
                     lista1.removeInicio();
                     break;
                 case 3:
-                    nome = JOptionPane.showInputDialog("Nome?");
-                    ra = JOptionPane.showInputDialog("RA?");
-                    lista1.adicionaInicio(new Aluno(nome, ra));
+                    x = Integer.parseInt(
+                            JOptionPane.showInputDialog(
+                                    "Adicione novo elemento"
+                            )
+                        );    
+                    lista1.adicionaFinal(x);
                     break;
                 case 4:
-                    lista1.removeFinal();
+//                    lista1.removeFinal();
                     break;
                 case 5:
                     x = Integer.parseInt(
                             JOptionPane.showInputDialog(
-                                    "Informe a posição do elemento que deseja remover"
+                                    "Informe a posi��o do elemento que deseja remover"
                             )
-                        );                    
-                    lista1.removePosicao(x);
+                        );
+//                    lista1.removePosicao(x);
                     break;
                 case 6:
-                    JOptionPane.showMessageDialog(null,
-                            "O primeiro elemento é:" + lista1.obtemPrimeiro()
-                    );
+//                    JOptionPane.showMessageDialog(null,
+//                            "O primeiro elemento �:" + lista1.obtemPrimeiro()
+//                    );
                     break;
                 case 7:
-                    JOptionPane.showMessageDialog(null,
-                            "O último elemento é:" + lista1.obtemUltimo()
-                    );
+//                    JOptionPane.showMessageDialog(null,
+//                            "O �ltimo elemento �:" + lista1.obtemUltimo()
+//                    );
                     break;                    
                 case 8:
-                    System.out.println("Em implementação");
+                    n = Integer.parseInt(
+                            JOptionPane.showInputDialog(
+                                    "Informe a posi��o do elemento que deseja inserir"
+                            )
+                        );
+                    x = Integer.parseInt(
+                            JOptionPane.showInputDialog(
+                                    "Informe o elemento que deseja inserir"
+                            )
+                        );                    
+//                    lista1.adicionaPosicao(x, n);
                     break;
                 case 9:
                     JOptionPane.showMessageDialog(null,lista1.toString());
@@ -85,5 +99,4 @@ public class TesteAluno {
             }
         }
     }
-    
 }

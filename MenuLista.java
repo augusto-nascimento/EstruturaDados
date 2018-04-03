@@ -54,7 +54,7 @@ public class MenuLista {
                     lista1.adicionaFinal(x);
                     break;
                 case 4:
-//                    lista1.removeFinal();
+                    lista1.removeFinal();
                     break;
                 case 5:
                     x = Integer.parseInt(

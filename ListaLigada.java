@@ -40,6 +40,22 @@ public class ListaLigada {
         }
         return r;
     }
+    public void removeFinal() {
+        if (inicio==null) {
+            System.out.println("Lista Vazia");
+        } else {
+            if (inicio.prox==null) {
+                inicio=null;
+            }
+            else {
+                No aux = inicio;
+                while (aux.prox.prox!=null) {
+                    aux = aux.prox;
+                }
+                aux.prox = null;
+            }
+        }
+    }
     public String toString(){
         No aux = inicio;
         String s = "";
